@@ -1,9 +1,11 @@
-import { Avatar, Container, Header, Logo } from "./styles";
+import { Avatar, Container, Header, Logo, Text } from "./styles";
+
+import { SummaryCard } from "@components/SummaryCard";
+import { Meals } from "@components/Meals";
+import { Button } from "@components/Button";
 
 import logoImg from '@assets/logo.png';
-import avatarImg from '@assets/avatar.png'
-import { PercentButton } from "@components/PercentButton";
-import { Meals } from "@components/Meals";
+import avatarImg from '@assets/avatar.png';
 
 export function Home() {
   return (
@@ -18,11 +20,13 @@ export function Home() {
         />
       </Header>
 
-      <PercentButton 
-        percentage={90.86}
-        description="das refeições dentro da dieta"
-      />
+      <SummaryCard />
 
+      <Text>Refeições</Text>
+
+      <Button 
+        title="New meal"
+      />
       <Meals />
     </Container>
   )

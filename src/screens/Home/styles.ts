@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
@@ -27,4 +27,14 @@ export const Avatar = styled.Image`
   margin-top: 64px;
   margin-right: 24px;
   border-radius: 999px;
+`
+
+export const Text = styled.Text`
+  ${({ theme }) => css`
+    color: ${theme.COLORS.GRAY_100};
+    font-size: ${theme.FONT_SIZE.MD}px;
+  `};
+  
+  width: 100%;
+  margin-left: 69px;
 `
