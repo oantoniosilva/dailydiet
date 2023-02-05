@@ -4,8 +4,8 @@ import { Container } from "./styles";
 export function SummaryCard() {
   return (
     <Container
-      cardSize="LG"
-      cardStyle="PRIMARY"
+      cardSize="XS"
+      cardStyle="RED_LIGHT"
     >
       <Highlight 
         title='90,86%'
