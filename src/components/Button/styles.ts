@@ -1,33 +1,82 @@
 import styled, { css } from "styled-components/native";
 import { TouchableOpacity } from 'react-native';
-import { Plus } from 'phosphor-react-native';
 
-export type ButtonTypeStyleProps = 'PRIMARY' | 'SECONDARY';
+export type ButtonStyleProps = 'SOLID' | 'OUTLINE';
+export type ButtonSizeProps = 'SM' | 'MD' | 'LG';
 
-export const Container = styled(TouchableOpacity)`
-  width: 327px;
-  height: 50px;
+type Props = {
+  buttonStyle: ButtonStyleProps;
+  buttonSize: ButtonSizeProps;
+}
 
+export const Container = styled(TouchableOpacity)<Props>`
   flex-direction: row;
-  align-items: center;
   justify-content: center;
-  padding: 16px 24px;
-  border-radius: 6px;
-  margin-top: 12px;
-  background-color: ${({ theme }) => theme.COLORS.GRAY_200};
+  width: 100%;
+ 
+  ${({ buttonStyle }) => {
+    switch(buttonStyle) {
+      case 'SOLID':
+        return css`
+          background-color: ${({ theme }) => theme.COLORS.GRAY_200};
+         `
+      case 'OUTLINE':
+        return css`
+          border: 1px solid ${({ theme }) => theme.COLORS.GRAY_100};
+          background: transparent;
+        `
+    }
+  }}
+
+  ${({ buttonSize }) => {
+    switch(buttonSize) {
+      case 'SM':
+        return css`
+          width: 135px;
+          height: 50px;          
+          padding: 16px 24px;
+          border-radius: 6px;
+        `      
+      case 'MD':
+        return css`
+          width: 191px;
+          height: 50px;          
+          padding: 16px 24px;
+          border-radius: 6px;
+        ` 
+      case 'LG':
+        return css`
+          width: 327px;
+          height: 50px;          
+          padding: 16px 24px;
+          border-radius: 6px;
+        `
+    }
+   }}
 `
+export type TextStyleProps = 'PRIMARY' | 'SECONDARY';
 
-export const PlusIcon = styled(Plus).attrs(({ theme }) => ({
-  size: 18,
-  color: theme.COLORS.WHITE
-}))``
+type TextButtonProps = {
+  textStyle: TextStyleProps;
+}
 
-export const Title = styled.Text`
-  ${({ theme}) => css`
-    color: ${theme.COLORS.WHITE};
-    font-size: ${theme.FONT_SIZE.SM}px;
-  `};
+export const Title = styled.Text<TextButtonProps>`
+  margin-left: 12px;
 
-  margin-left: 8px; 
-  font-weight: 700;
+  ${({ textStyle }) => {
+    switch(textStyle) {
+      case 'PRIMARY':
+        return ({ theme }) => css`
+          color: ${theme.COLORS.WHITE};
+          font-size: ${theme.FONT_SIZE.SM}px;
+          font-family: ${theme.FONT_FAMILY.BOLD};
+       `
+      case 'SECONDARY':
+        return ({ theme }) => css`
+          color: ${theme.COLORS.GRAY_100};
+          font-size: ${theme.FONT_SIZE.SM}px;
+          font-family: ${theme.FONT_FAMILY.BOLD};
+       `
+    }
+  }}
 `

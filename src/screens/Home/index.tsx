@@ -24,9 +24,10 @@ export function Home() {
 
       <Text>Refeições</Text>
 
-      <Button 
-        title="New meal"
+      <Button
+        title="Nova refeição"
       />
+
       <Meals />
     </Container>
   )

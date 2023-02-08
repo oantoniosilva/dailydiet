@@ -37,4 +37,5 @@ export const Text = styled.Text`
   
   width: 100%;
   margin-left: 69px;
+  margin-bottom: 8px;
 `

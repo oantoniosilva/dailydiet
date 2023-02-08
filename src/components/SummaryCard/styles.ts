@@ -1,13 +1,15 @@
 import styled, { css } from 'styled-components/native';
 
-type IStyledSummaryProps = {
+type StyledSummaryProps = {
   cardSize: 'XS' | 'SM' | 'LG' | 'XL';
   cardStyle: 'GREEN_LIGHT' | 'RED_LIGHT' | 'GRAY';
 }
 
-type Props = IStyledSummaryProps;
+type Props = StyledSummaryProps;
 
 export const Container = styled.View<Props>`
+  align-items: center;
+  border-radius: 8px;
   
   ${({ cardSize }) => {
     switch(cardSize) {
@@ -15,10 +17,8 @@ export const Container = styled.View<Props>`
         return css`
           width: 157.5px;
           height: 107px;
-          padding: 16px;
-          border-radius: 8px;
+          padding: 16px;          
           margin: 12px;
-          align-items: center;
         `      
       case 'SM':
         return css`
@@ -26,8 +26,6 @@ export const Container = styled.View<Props>`
           height: 89px;
           padding: 16px;
           margin-bottom: 12px;
-          border-radius: 8px;
-          align-items: center;
           `      
       case 'LG':
         return css`
@@ -35,10 +33,8 @@ export const Container = styled.View<Props>`
           width: 327px;
           height: 102px;
           top: 37px;
-          border-radius: 8px;
           padding: 20px 16px; 
           margin-bottom: 52px;
-          align-items: center;
         `
       case 'XL':
         return css`
