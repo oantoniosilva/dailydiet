@@ -1,16 +1,15 @@
-import { Highlight } from "@components/Highlight";
-import { Container } from "./styles";
+import { ViewProps } from "react-native";
+import { CardSizeVariant, CardColorVariant, Container } from "./styles";
 
-export function SummaryCard() {
-  return (
-    <Container
-      cardSize="LG"
-      cardStyle="GREEN_LIGHT"
-    >
-      <Highlight 
-        title='90,86%'
-        subtitle='das refeições dentro dieta'
-      />
-    </Container>
-  )
+type CardProps = ViewProps & {
+  size: CardSizeVariant;
+  color: CardColorVariant;
+};
+
+export function SummaryCard({
+  size = "LG",
+  color = "GREEN_LIGHT",
+  ...rest
+}: CardProps) {
+  return <Container cardSize={size} cardStyle={color} {...rest}></Container>;
 }

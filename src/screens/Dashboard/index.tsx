@@ -4,31 +4,25 @@ import { SummaryCard } from "@components/SummaryCard";
 import { Meals } from "@components/Meals";
 import { Button } from "@components/Button";
 
-import logoImg from '@assets/logo.png';
-import avatarImg from '@assets/avatar.png';
+import logoImg from "@assets/logo.png";
+import avatarImg from "@assets/avatar.png";
 
-export function Home() {
+export function Dashboard() {
   return (
     <Container>
       <Header>
-        <Logo
-          source={logoImg} 
-        />
+        <Logo source={logoImg} />
 
-        <Avatar
-          source={avatarImg}
-        />
+        <Avatar source={avatarImg} />
       </Header>
 
       <SummaryCard />
 
       <Text>Refeições</Text>
 
-      <Button
-        title="Nova refeição"
-      />
+      <Button title="Nova refeição" />
 
       <Meals />
     </Container>
-  )
+  );
 }
